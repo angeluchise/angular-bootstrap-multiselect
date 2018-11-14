@@ -1,7 +1,8 @@
 {
   "name": "angular-bootstrap-multiselect",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "authors": [
+    "Angel Perez"
     "Sebastian Hammerl, Getslash GmbH",
     "Amitava Saha"
   ],
@@ -22,7 +23,7 @@
     "select"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/sebastianha/angular-bootstrap-multiselect",
+  "homepage": "https://github.com/angeluchise/angular-bootstrap-multiselect",
   "ignore": [
     "**/.*",
     "node_modules",
