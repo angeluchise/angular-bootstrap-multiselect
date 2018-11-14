@@ -144,7 +144,7 @@ angular.module("ui.multiselect", ["multiselect.tpl.html"])
 						if(attrs.msSelected) {
 							scope.header = $interpolate(attrs.msSelected)(scope);
 						} else {
-							scope.header = modelCtrl.$modelValue.length + " " +  attrs.msSelectedall || "selected";
+							scope.header = modelCtrl.$modelValue.length + " " +  attrs.msSelecteds || "selected";
 						}
 
 					} else {
