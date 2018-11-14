@@ -15,7 +15,7 @@ Modified by Sebastian Hammerl (https://github.com/sebastianha/angular-bootstrap-
 ### Installation via Bower:
 
 ```
-$ bower install angular-bootstrap-multiselect --save
+$ bower install angeluchise-angular-bootstrap-multiselect --save
 ```
 
 ### Usage:
