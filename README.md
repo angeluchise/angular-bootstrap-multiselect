@@ -52,6 +52,7 @@ $ karma start
 ```
 
 ### License
+Copyright (c) 2018 Angel Perez
 
 Copyright (c) 2017 Sebastian Hammerl, Getslash GmbH
 
