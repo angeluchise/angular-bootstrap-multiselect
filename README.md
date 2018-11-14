@@ -8,6 +8,7 @@ Screenshot:
 ![Screenshot](/multiselect.png?raw=true "Screenshot")
 
 Originally created by Amitava Saha (https://github.com/amitava82/angular-multiselect)
+
 Modified by Sebastian Hammerl (https://github.com/sebastianha/angular-bootstrap-multiselect)
 
 
