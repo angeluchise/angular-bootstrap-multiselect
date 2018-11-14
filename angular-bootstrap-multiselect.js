@@ -108,6 +108,7 @@ angular.module("ui.multiselect", ["multiselect.tpl.html"])
 						scope.$eval(changeHandler);
 					}
 					getHeaderText();
+					getSearchText();
 					modelCtrl.$setValidity("required", scope.valid());
 				});
 
@@ -139,18 +140,23 @@ angular.module("ui.multiselect", ["multiselect.tpl.html"])
 						scope.header = attrs.msHeader || "Select";
 						return scope.header;
 					}
-
 					if(isMultiple) {
 						if(attrs.msSelected) {
 							scope.header = $interpolate(attrs.msSelected)(scope);
 						} else {
-							scope.header = modelCtrl.$modelValue.length + " " + "selected";
+							scope.header = modelCtrl.$modelValue.length + " " +  attrs.msSelectedall || "selected";
 						}
 
 					} else {
 						var local = {};
 						local[parsedResult.itemName] = modelCtrl.$modelValue;
 						scope.header = parsedResult.viewMapper(local);
+					}
+				}
+				function getSearchText() {
+					if(isEmpty(modelCtrl.$modelValue)) {
+						scope.search = attrs.msSearch || "Type to filter options";
+						return scope.search;
 					}
 				}
 
@@ -322,10 +328,10 @@ angular.module("multiselect.tpl.html", []).run(["$templateCache", function($temp
 	$templateCache.put("multiselect.tpl.html",
 			"<div class=\"btn-group\">\n" +
 			"  <button tabindex=\"{{tabindex}}\" title=\"{{header}}\" type=\"button\" class=\"btn btn-default dropdown-toggle\" ng-click=\"toggleSelect()\" ng-disabled=\"disabled\" ng-class=\"{'error': !valid()}\">\n" +
-			"    <div ng-style=\"maxWidth\" style=\"padding-right: 13px; overflow: hidden; text-overflow: ellipsis;\">{{header}}</div><span class=\"caret\" style=\"position:absolute;right:10px;top:14px;\"></span>\n" +
+			"    <div ng-style=\"maxWidth\" style=\"overflow: hidden; text-overflow: ellipsis;padding-left: 15px;\">{{header}}</div><span class=\"caret\" style=\"position:absolute;right:10px;top:14px;\"></span>\n" +
 			"  </button>\n" +
 			"  <ul class=\"dropdown-menu\" style=\"margin-bottom:30px;padding-left:5px;padding-right:5px;\" ng-style=\"ulStyle\">\n" +
-			"    <input ng-show=\"items.length > filterAfterRows\" ng-model=\"filter\" style=\"padding: 0px 3px;margin-right: 15px; margin-bottom: 4px;\" placeholder=\"Type to filter options\">" +
+			"    <input ng-show=\"items.length > filterAfterRows\" ng-model=\"filter\" style=\"padding: 0px 3px;margin-right: 15px; margin-bottom: 4px;width: 100%;\" placeholder=\"{{search}}\">" +
 			"    <li data-stopPropagation=\"true\" ng-repeat=\"i in items | filter:filter\" ng-class=\"{'dropdown-header': i.header, 'divider': i.divider}\">\n" +
 			"      <a ng-if=\"!i.header && !i.divider\" ng-click=\"select($event, i)\" style=\"padding:3px 10px;cursor:pointer;\">\n" +
 			"        <i class=\"glyphicon\" ng-class=\"{'glyphicon-ok': i.checked, 'empty': !i.checked}\"></i> {{i.label}}" +
