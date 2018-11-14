@@ -33,6 +33,9 @@ Add "ui.multiselect" to your modules list. Then you can use it like follows:
     scroll-after-rows="5"                 // Show scroll bar after 5 rows
     filter-after-rows="5                  // Show filter input after 5 rows
     max-width="100"                       // The maximum width of the multiselect dropdown button
+    ms-header="select"                    // The name of the multiselect
+    ms-search="Filter by name"        // the text of the input of search
+    ms-selecteds="Selecteds"          // the text of the header selecting the items
     tabindex="-1">                        // tabindex setting for dropdown
 </multiselect>
 ```
